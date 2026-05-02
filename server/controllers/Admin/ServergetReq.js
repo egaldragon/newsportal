@@ -227,6 +227,39 @@ export const adminDashboard =  async (req, res) => {
     }
   }
 
+  export const analyticsPage = async (req, res) => {
+    try {
+      const newsCount = await axios.get(`${BASE_URL}/counter`);
+      const upcomingnewsCount = await axios.get(`${BASE_URL}/upcoming/counter`);
+      const viewsCount = await axios.get(`${BASE_URL}/Pageviews`);
+      const adminRes = await axios.get(`${BASE_URL}/admin/posts`);
+
+      const totalNews = Math.max((newsCount.data.count || 1) - 1, 0);
+      const totalUpcoming = Math.max((upcomingnewsCount.data.count || 1) - 1, 0);
+
+      const publishedPostsRes = await axios.get(
+        `${BASE_URL}/posts?page=1&limit=${Math.max(totalNews, 50)}`
+      );
+      const upcomingPostsRes = await axios.get(`${BASE_URL}/upcoming/posts`);
+
+      const publishedPosts = publishedPostsRes.data?.results || [];
+      const upcomingPosts = upcomingPostsRes.data || [];
+
+      res.render("partials/analytics.ejs", {
+        Total_news: totalNews,
+        upcoming_news: totalUpcoming,
+        totalVisits: viewsCount.data.count,
+        admin_post: adminRes.data[0],
+        published_posts: publishedPosts,
+        upcoming_posts: upcomingPosts,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "Error fetching analytics",
+      });
+    }
+  }
+
   export const deleteFromAllnews = async (req, res) => {
 
     const id = req.params.id;

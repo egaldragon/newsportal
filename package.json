@@ -1,12 +1,27 @@
 {
   "scripts": {
     "start": "concurrently \"cd server && npm start\"  \" cd client && npm start\" "
-
   },
   "dependencies": {
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
-  }
+  },
+  "name": "newsportal",
+  "version": "1.0.0",
+  "description": "![localhost_3001_](https://github.com/Phinix-BI/News-Portal-U.V-/assets/116413469/0a4a98e3-5606-4a55-9545-ed6e27cd28d6)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egaldragon/newsportal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/egaldragon/newsportal/issues"
+  },
+  "homepage": "https://github.com/egaldragon/newsportal#readme"
 }

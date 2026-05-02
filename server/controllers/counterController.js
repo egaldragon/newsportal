@@ -5,10 +5,10 @@ export const newsCounter = async (req, res) => {
     try {
       const counter = await CounterModel.findOne();
       if (!counter) {
-        // If there is no counter, you may want to handle this case accordingly
-        res.status(404).json({ error: "Counter not found" });
+        // Keep API shape stable so admin dashboard can render on a fresh DB.
+        return res.json({ count: 1 });
       } else {
-        res.json(counter);
+        return res.json(counter);
       }
     } catch (error) {
       console.error(error);
@@ -20,10 +20,10 @@ export const upcomingNewsCounter =  async (req, res) => {
     try {
       const counter = await upcomingCounterModel.findOne();
       if (!counter) {
-        // If there is no counter, you may want to handle this case accordingly
-        res.status(404).json({ error: "Counter not found" });
+        // Keep API shape stable so admin dashboard can render on a fresh DB.
+        return res.json({ count: 1 });
       } else {
-        res.json(counter);
+        return res.json(counter);
       }
     } catch (error) {
       console.error(error);

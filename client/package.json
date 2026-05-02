@@ -1,5 +1,5 @@
 {
-  "name": "news-portal",
+  "name": "newsportal-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,8 +15,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4",
-    "type" : "module"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",

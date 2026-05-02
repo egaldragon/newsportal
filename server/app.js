@@ -20,7 +20,7 @@ import upcomingPostRoutes from './routes/upcomingRoutes.js';
 import postCounterRoutes from './routes/postCounterRoutes.js';
 
 
-import { addNews, adminDashboard, adminLoginPage, allNews, deleteFromAllnews, deleteFromUpcoming, errorPage, getNewsById, logout, settingPage, upcomingNews, upcomingNewsById } from "./controllers/Admin/ServergetReq.js";
+import { addNews, adminDashboard, adminLoginPage, allNews, analyticsPage, deleteFromAllnews, deleteFromUpcoming, errorPage, getNewsById, logout, settingPage, upcomingNews, upcomingNewsById } from "./controllers/Admin/ServergetReq.js";
 
 //this is the master id & pass for admin login 
 import { masterId,masterKey } from "./controllers/Admin/aminIdPass.js";
@@ -127,6 +127,7 @@ app.get("/upcoming", authenticateUser,upcomingNews);
 // admin get
 
 app.get("/setting", authenticateUser, settingPage);
+app.get("/Analytics", authenticateUser, analyticsPage);
 
 app.get('/api/v2/posts', async (req, res) => {
 
